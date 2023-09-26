@@ -1,0 +1,9 @@
+console:
+  max_message_size_bytes: 409600
+  port: 7351
+  username: "admin"
+  password: "password"
+logger:
+  level: "DEBUG"
+
+
