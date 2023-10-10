@@ -3,5 +3,6 @@ run:
 	docker-compose up --build
 
 run-dev-deploy:
+	chmod +x ./deploy/Development/deploy.sh
 	./deploy/Development/deploy.sh
 

@@ -22,6 +22,10 @@ func InitModule(ctx context.Context, logger runtime.Logger, db *sql.DB, nk runti
         logger.Error("Unable to register: ", err)
         return err
     }
+    if err := initializer.RegisterRpc("customRpcTest", src.CustomRpcTest); err != nil {
+        logger.Error("Unable to register: ", err)
+        return err
+    }
    
     return nil
 }

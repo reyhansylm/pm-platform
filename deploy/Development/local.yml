@@ -1,0 +1,8 @@
+console:
+  port: 7351
+  username: "s735Kw86LibB6aVwzZsu9PVRi"
+  password: "OvBVEOV6Ry7jfT024t5IBShAm"
+logger:
+  level: "DEBUG"
+
+

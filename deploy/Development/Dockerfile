@@ -1,4 +1,11 @@
-FROM golang:1.19-alpine AS builder
+FROM heroiclabs/nakama-pluginbuilder:latest AS go-builder
+
+ENV GO111MODULE on
+ENV CGO_ENABLED 1
+
+WORKDIR /backend
+
+COPY . .
 
 FROM heroiclabs/nakama:latest
 
@@ -12,7 +19,6 @@ EXPOSE 7349
 EXPOSE 7350
 EXPOSE 7351
 
-ENTRYPOINT [ "/bin/sh", "-ecx", "/nakama/nakama migrate up --database.address ${DBUSER}:${DBPASS}@${DBHOST}:5432/platform && exec /nakama/nakama --config /nakama/data/local.yml --database.address ${DBUSER}:${DBPASS}@${DBHOST}:5432/platform"]
+ENTRYPOINT [ "/bin/sh", "-ecx", "/nakama/nakama migrate up --database.address ${DBUSER}:${DBPASS}@${DBHOST}:5432/DevelopmentPartyMonterzz && exec /nakama/nakama --config /nakama/data/local.yml --database.address ${DBUSER}:${DBPASS}@${DBHOST}:5432/DevelopmentPartyMonterzz"]
 
-COPY bin/index /nakama/data/modules/
 COPY local.yml /nakama/data/
