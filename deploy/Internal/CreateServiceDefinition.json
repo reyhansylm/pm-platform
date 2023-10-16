@@ -1,0 +1,51 @@
+{
+    "cluster": "arn:aws:ecs:eu-central-1:001043692857:cluster/PM-Internal-Cluster",
+    "serviceName": "PM-Platform-Service",
+    "taskDefinition": "#TASKDEFINITION#",
+    "loadBalancers": [
+        {
+            "targetGroupArn": "arn:aws:elasticloadbalancing:eu-central-1:001043692857:targetgroup/PM-Platform-TG/2c53c02b334541ba",
+            "containerName": "pm-platform-container",
+            "containerPort": 7350
+        },
+        {
+            "targetGroupArn": "arn:aws:elasticloadbalancing:eu-central-1:001043692857:targetgroup/PM-PlatformConsole-TG/afe0aa15b8aa51dc",
+            "containerName": "pm-platform-container",
+            "containerPort": 7351
+        }
+    ],
+    "serviceRegistries": [],
+    "desiredCount": 1,
+    "launchType": "FARGATE",
+    "platformVersion": "LATEST",
+    "deploymentConfiguration": {
+        "deploymentCircuitBreaker": {
+            "enable": true,
+            "rollback": true
+        },
+        "maximumPercent": 200,
+        "minimumHealthyPercent": 100
+    },
+    "placementConstraints": [],
+    "placementStrategy": [],
+    "networkConfiguration": {
+        "awsvpcConfiguration": {
+            "subnets": [
+                "subnet-095f2b05bcfd17d2d",
+                "subnet-00ed95ccf1b9bcffd",
+                "subnet-0aa9c7b555b09aa70"
+            ],
+            "securityGroups": [
+                "sg-09e29e3ae98fd5e4c"
+            ],
+            "assignPublicIp": "ENABLED"
+        }
+    },
+    "healthCheckGracePeriodSeconds": 0,
+    "schedulingStrategy": "REPLICA",
+    "deploymentController": {
+        "type": "ECS"
+    },
+    "enableECSManagedTags": true,
+    "propagateTags": "NONE"
+}

@@ -1,8 +1,8 @@
 {
-    "family": "PM-Platform-TaskDefinition",
+    "family": "PM-Platform-Development-Task-Definition",
     "containerDefinitions": [
         {
-            "name": "pm-container",
+            "name": "pm-platform-container",
             "image": "#IMAGE#",
             "cpu": 0,
             "portMappings": [
@@ -31,7 +31,7 @@
                 "logDriver": "awslogs",
                 "options": {
                     "awslogs-create-group": "true",
-                    "awslogs-group": "/ecs/PM-Platform-TaskDefinition",
+                    "awslogs-group": "/ecs/PM-Platform-Development-Task-Definition",
                     "awslogs-region": "eu-central-1",
                     "awslogs-stream-prefix": "ecs"
                 }

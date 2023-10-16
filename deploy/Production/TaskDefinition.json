@@ -1,0 +1,49 @@
+{
+    "family": "PM-Platform-Production-Task-Definition",
+    "containerDefinitions": [
+        {
+            "name": "pm-platform-container",
+            "image": "#IMAGE#",
+            "cpu": 0,
+            "portMappings": [
+                {
+                    "containerPort": 7349,
+                    "hostPort": 7349,
+                    "protocol": "tcp"
+                },
+                {
+                    "containerPort": 7350,
+                    "hostPort": 7350,
+                    "protocol": "tcp"
+                },
+                {
+                    "containerPort": 7351,
+                    "hostPort": 7351,
+                    "protocol": "tcp"
+                }
+            ],
+            "essential": true,
+            "environment": [],
+            "environmentFiles": [],
+            "mountPoints": [],
+            "volumesFrom": [],
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-create-group": "true",
+                    "awslogs-group": "/ecs/PM-Platform-Production-Task-Definition",
+                    "awslogs-region": "eu-central-1",
+                    "awslogs-stream-prefix": "ecs"
+                }
+            }
+        }
+    ],
+    "taskRoleArn": "arn:aws:iam::001043692857:role/ecsTaskExecutionRole",
+    "executionRoleArn": "arn:aws:iam::001043692857:role/ecsTaskExecutionRole",
+    "networkMode": "awsvpc",
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "cpu": "1024",
+    "memory": "3072"
+}

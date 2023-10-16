@@ -5,8 +5,6 @@ ENV CGO_ENABLED 1
 
 WORKDIR /backend
 
-COPY . .
-
 FROM heroiclabs/nakama:latest
 
 HEALTHCHECK --interval=10s --timeout=5s --start-period=5s --retries=5 CMD curl -f http://localhost:7350/ || exit 1
@@ -21,4 +19,5 @@ EXPOSE 7351
 
 ENTRYPOINT [ "/bin/sh", "-ecx", "/nakama/nakama migrate up --database.address ${DBUSER}:${DBPASS}@${DBHOST}:5432/DevelopmentPartyMonterzz && exec /nakama/nakama --config /nakama/data/local.yml --database.address ${DBUSER}:${DBPASS}@${DBHOST}:5432/DevelopmentPartyMonterzz"]
 
+COPY ./backend.so /nakama/data/modules/build/
 COPY local.yml /nakama/data/
